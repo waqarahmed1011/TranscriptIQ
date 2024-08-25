@@ -1,5 +1,5 @@
-import { NextResponse } from 'next/server'
-import OpenAI from 'openai'
+import { NextResponse } from 'next/server';
+import OpenAI from 'openai';
 
 const system_prompt = `You are an AI specialized in analyzing sales pitches between customers and sales representatives. Your role is to evaluate the effectiveness of sales pitches, provide constructive feedback, and suggest improvements to help sales teams enhance their performance.
 
@@ -25,26 +25,27 @@ Suggest ways to better align the sales pitch with the customer’s pain points a
 Continuous Improvement:
 
 Encourage a mindset of continuous learning and improvement, emphasizing the importance of adapting to customer feedback and evolving sales techniques.
-Your goal is to help sales representatives deliver more effective, customer-focused pitches that lead to successful outcomes.`
+Your goal is to help sales representatives deliver more effective, customer-focused pitches that lead to successful outcomes.`;
 
 const openai = new OpenAI({
-	baseURL: 'https://openrouter.ai/api/v1',
-	apiKey: process.env.MY_API_KEY,
-})
+  baseURL: 'https://openrouter.ai/api/v1',
+  apiKey: process.env.MY_API_KEY,
+});
+
 async function main(data) {
-	const completion = await openai.chat.completions.create({
-		model: 'meta-llama/llama-3.1-8b-instruct:free',
-		messages: [{ role: 'system', content: system_prompt }, ...data],
-	})
-	return completion.choices[0].message
+  const completion = await openai.chat.completions.create({
+    model: 'meta-llama/llama-3.1-8b-instruct:free',
+    messages: [{ role: 'system', content: system_prompt }, ...data],
+  });
+  return completion.choices[0].message;
 }
 
 export async function GET(req) {
-	return NextResponse.json({ message: 'Hello From APIs' })
+  return NextResponse.json({ message: 'Hello From APIs' });
 }
 
 export async function POST(req) {
-	const data = await req.json()
-	const res = await main(data)
-	return NextResponse.json(res)
+  const data = await req.json();
+  const res = await main(data);
+  return NextResponse.json(res);
 }

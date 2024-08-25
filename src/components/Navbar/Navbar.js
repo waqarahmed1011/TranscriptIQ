@@ -1,9 +1,8 @@
-import { Box, Stack, Button } from "@mui/material";
-import { shadows } from "@mui/system";
+import { Box, Stack } from "@mui/material";
 import Image from "next/image";
 import { TextGenerateEffect } from "../ui/textgenerate_effect";
-import GitHubIcon from "@mui/icons-material/GitHub";
 import Link from "next/link";
+
 export default function Navbar() {
   return (
     <Stack
@@ -13,6 +12,7 @@ export default function Navbar() {
       gap={2}
       padding={1}
       fontSize={15}
+      justifyContent="space-between"
     >
       <Stack
         height={"40px"}
@@ -35,61 +35,23 @@ export default function Navbar() {
           justifyContent={"center"}
           alignItems={"center"}
         >
-          <TextGenerateEffect words={"HeadStarter"} />
+          <TextGenerateEffect words={"SalesTranscriptAI"} />
         </Stack>
       </Stack>
       <Stack
+        direction="row"
         height={"40px"}
-        width={"69%"}
-        bgcolor={"#000000"}
-        borderRadius={2}
-        color={"white"}
-        direction={"row"}
         gap={2}
-        justifyContent={""}
         alignItems={"center"}
-        paddingLeft={4}
       >
-        <Stack sx={{"&:hover":{backgroundColor:'#F5F5F5',color:'black'}}} height={'80%'} width={'10%'} justifyContent={'center'} alignItems={'center'} borderRadius={2}>Pricing</Stack>
-        <Stack sx={{"&:hover":{backgroundColor:'#F5F5F5',color:'black'}}} height={'80%'} width={'10%'} justifyContent={'center'} alignItems={'center'} borderRadius={2}>Features</Stack>
-        <Stack sx={{"&:hover":{backgroundColor:'#F5F5F5',color:'black'}}} height={'80%'} width={'10%'} justifyContent={'center'} alignItems={'center'} borderRadius={2}>Forum</Stack>
-        <Stack sx={{"&:hover":{backgroundColor:'#F5F5F5',color:'black'}}} height={'80%'} width={'10%'} justifyContent={'center'} alignItems={'center'} borderRadius={2}>Docs</Stack>
-      </Stack>
-      <Stack
-        height={"40px"}
-        width={"7%"}
-        bgcolor={"#5577ED"}
-        borderRadius={2}
-        justifyContent={"center"}
-        alignItems={"center"}
-        color={"white"}
-        sx={{
-          "&:hover" :{
-            backgroundColor:"#2255E4"
-          }
-        }}
-      >
-        <Link href={"/"}>Discord</Link>
-      </Stack>
-      <Stack
-        height={"40px"}
-        width={"7%"}
-        bgcolor={"#000000"}
-        borderRadius={2}
-        color={"white"}
-        direction={"row"}
-        justifyContent={"center"}
-        alignItems={"center"}
-        gap={1}
-        sx={{
-          "&:hover": {
-            backgroundColor: "white",
-            color: "black",
-          },
-        }}
-      >
-        <GitHubIcon />
         <Stack
+          height={"100%"}
+          width={"100px"}
+          bgcolor={"#000000"}
+          borderRadius={2}
+          justifyContent={"center"}
+          alignItems={"center"}
+          color={"white"}
           sx={{
             "&:hover": {
               backgroundColor: "white",
@@ -97,42 +59,25 @@ export default function Navbar() {
             },
           }}
         >
-          <Link href={"/"}>Github</Link>
+          <Link href="/">Home</Link>
         </Stack>
-      </Stack>
-      <Stack
-        height={"40px"}
-        width={"7%"}
-        bgcolor={"#000000"}
-        borderRadius={2}
-        justifyContent={"center"}
-        alignItems={"center"}
-        color={"white"}
-        sx={{
-          "&:hover": {
-            backgroundColor: "white",
-            color: "black",
-          },
-        }}
-      >
-        <Link href="/chat">Chat</Link>
-      </Stack>
-      <Stack
-        height={"40px"}
-        width={"7%"}
-        bgcolor={"#000000"}
-        borderRadius={2}
-        justifyContent={"center"}
-        alignItems={"center"}
-        color={"white"}
-        sx={{
-          "&:hover": {
-            backgroundColor: "white",
-            color: "black",
-          },
-        }}
-      >
-        <Link href="/">Home</Link>
+        <Stack
+          height={"100%"}
+          width={"100px"}
+          bgcolor={"#000000"}
+          borderRadius={2}
+          justifyContent={"center"}
+          alignItems={"center"}
+          color={"white"}
+          sx={{
+            "&:hover": {
+              backgroundColor: "white",
+              color: "black",
+            },
+          }}
+        >
+          <Link href="/chat">Get Started</Link>
+        </Stack>
       </Stack>
     </Stack>
   );
